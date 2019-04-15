@@ -9,7 +9,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
-# locate the directorie where the files are
+# locate the directory where the files are
 os.chdir("/home/foxs/Downloads/pysheng-master/LuciusAnnaeusSeneca")
 
 
