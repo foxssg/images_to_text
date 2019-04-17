@@ -1,5 +1,5 @@
 #! Python
-# This is a program which converts PNG to PDF and merge them
+# This is a program which converts images to text and merge them to a single PDF file
 
 
 from PIL import Image
