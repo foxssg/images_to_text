@@ -10,20 +10,22 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
 # locate the directory where the files are
-os.chdir("/home/foxs/Downloads/pysheng-master/LuciusAnnaeusSeneca")
+user_folder = input('type the location where your image files are')
+os.chdir(user_folder)
 
 
-# loop through all PNG files       
-folders = glob.glob("/home/foxs/Downloads/pysheng-master/LuciusAnnaeusSeneca")
+# loop through all image files
+user_ask_extension = input('type the extension that you want to convert to pdf, for example png')
+folders = glob.glob(user_folder)
 imagenames_list = []
 for folder in folders:
-    for f in sorted(glob.glob(folder+'/*.png')):
+    for f in sorted(glob.glob(folder+'/*.'+user_ask_extension)):
         imagenames_list.append(f)
 
 read_images = []
 print(imagenames_list)
 
-# extract text from PNG
+# extract text from the image files
 for image in imagenames_list:
     Image.open(image)
     read_images.append(pytesseract.image_to_string(image, lang='eng'))
@@ -37,7 +39,8 @@ styleN = styles['Normal']
 styleH = styles['Heading1']
 story = []
 
-pdf_name = 'your_pdf_file.pdf'
+user_pdf_name = input('type a name for your PDF file')
+pdf_name = (user_pdf_name + '.pdf')
 doc = SimpleDocTemplate(
     pdf_name,
     pagesize=letter,
